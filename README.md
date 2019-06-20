@@ -1,3 +1,3 @@
-# hello-world
+# Code Playground
 
-Hi I'm eXTure
+Repository for storing code explorations, algorithms and stuff
