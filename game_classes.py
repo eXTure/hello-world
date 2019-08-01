@@ -2,7 +2,7 @@ from pprint import pprint
 
 class GameCharacter:
     
-    speed = 5
+    speed = 1
 
     def __init__(self, name, width, height, x_pos, y_pos):
         self.name = name
@@ -30,5 +30,28 @@ class PlayerCharacter(GameCharacter):
 
 player_character = PlayerCharacter("P_character", 500, 500)
 player_character.move(100)
-print(player_character.x_pos, player_character.y_pos)
+#print(player_character.x_pos, player_character.y_pos)
 #pprint(vars(player_character))
+
+class NonPlayerCharacter(GameCharacter):
+
+    speed = 5
+
+    def __init__(self, name, x_pos, y_pos):
+        super().__init__(name, 100, 100, x_pos, y_pos)
+
+    def wellcome_message(self, name):
+        print("Wellcome ", name, " !")
+
+
+npc_1 = NonPlayerCharacter("npc_1", 500, 700)
+
+while player_character.y_pos != npc_1.y_pos:
+    
+    player_character.move(player_character.speed)
+
+    if player_character.y_pos == npc_1.y_pos:
+        print(npc_1.wellcome_message(player_character.name))
+        break
+    else: 
+        print("Player advanced ", player_character.speed, " steps")
