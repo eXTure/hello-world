@@ -1,7 +1,9 @@
 #Basic cross the road game using pygame
 
-import sys, pygame
+import sys
+import pygame
 
+#print(dir(pygame))
 pygame.init()
 
 SCREEN_WIDHT = 800
