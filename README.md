@@ -1,3 +1,3 @@
 # Code Playground
 
-Repository for storing code explorations, algorithms and stuff
+Repository for storing code explorations, algorithms and random mini projects
