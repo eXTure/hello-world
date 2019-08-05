@@ -1,7 +1,0 @@
-{
-    "python.pythonPath": "C:\\Users\\tomas\\AppData\\Local\\Programs\\Python\\Python36\\python.exe",
-    "workbench.settings.openDefaultSettings": true
-    "--extension-pkg-whitelist=pygame": ["python.linting.pylintArgs"]
-}
-
-
