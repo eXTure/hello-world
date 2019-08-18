@@ -1,25 +1,22 @@
 import urllib
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 import requests
 
-#headers = {‘User-Agent’: ‘Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3’}
-#reg_url = “https:XXXXOOOO"
-#req = Request(url=reg_url, headers=headers)
-#html = urlopen(req).read()
-
-# specify the url
-quote_page = "https://www.kilo.lt"
-
-# query the website and return the html to the variable 'page'
-page = urlopen(quote_page)
+headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3"}
+#http://www.bloomberg.com/quote/SPX:IND
+#https://www.kilo.lt
+reg_url = "https://www.bloomberg.com/quote/SPX:IND"
+req = Request(url=reg_url, headers=headers)
+html = urlopen(req).read()
 
 # parse the html using beautiful soup and store in variable `soup`
-soup = BeautifulSoup(page, "html.parser")
+soup = BeautifulSoup(html, "html.parser")
 
-print(page)
+# Take out the <div> of name and get its value
+name_box = soup.find("span", attrs={"class": "priceText__1853e8a5"})
 
-#with open("scrape_test.html") as html_file:
-#    soup = BeautifulSoup(html_file, "lxml")
-#
-#print(soup)
+# strip() is used to remove starting and trailing
+name = name_box.text.strip()
+
+print(name)
