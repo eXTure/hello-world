@@ -5,21 +5,42 @@ def rotate(string, n):
        Expects string and n (int) for number of characters to move.
     """
     if n>0:
-        sliced_string = string[(len(string)-(n+1)):]
-        clean_string = string.replace(sliced_string, '')
-        result_string = sliced_string + clean_string
+        sliced_string1 = list(string[n:])
+        sliced_string2 = list(string.replace(string[n:], ''))
+        print(sliced_string1, sliced_string2)
+        clean_string = str(sliced_string1 + sliced_string2)
+
+        temp_string = ''
+        other_string = ''
+        for i in clean_string:
+            print(i, 1)
+            if i != ' ' or i != ',' or i != '[' or i != ']' or i != "'":
+                temp_string += i
+                print(temp_string, 2)
+            else:
+                other_string += temp_string
+                print(other_string, 3)
+
+
+        print(other_string, 4)
+        #clean_string = clean_string.replace('[', '')
+        #clean_string = clean_string.replace("'", '')
+        #clean_string = clean_string.replace(']', '')
+        #clean_string = clean_string.replace(',', '')
+        #clean_string = clean_string.replace(' ', '')
+        result_string = other_string
     elif n<0:
-        sliced_string = string[:(abs(n)+1)]
+        sliced_string = string[:abs(n)]
         clean_string = string.replace(sliced_string, '')
         result_string = clean_string + sliced_string
     else:
-        result_string = 'Number to rotate cannot be 0'
+        result_string = string
 
     return result_string
 
 
-print(rotate('bob and julian love pybites!', 15))
-
+#print(rotate('bob and julian love pybites!', 15))
+print(rotate('hello', 2), 5)
 
 def test_small_rotate():
     assert rotate('hello', 2) == 'llohe'
