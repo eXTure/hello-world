@@ -12,14 +12,15 @@ def rotate(string, n):
 
         temp_string = ''
         other_string = ''
+        print(clean_string, 0)
         for i in clean_string:
             print(i, 1)
-            if i != ' ' or i != ',' or i != '[' or i != ']' or i != "'":
-                temp_string += i
-                print(temp_string, 2)
-            else:
-                other_string += temp_string
-                print(other_string, 3)
+            if i.isalpha():
+                other_string += i
+                print(other_string, 2)
+            #else:
+            #    other_string += temp_string
+            #    print(other_string, 3)
 
 
         print(other_string, 4)
@@ -40,7 +41,7 @@ def rotate(string, n):
 
 
 #print(rotate('bob and julian love pybites!', 15))
-print(rotate('hello', 2), 5)
+print(rotate('bob and julian love pybites!', 15), 5)
 
 def test_small_rotate():
     assert rotate('hello', 2) == 'llohe'
